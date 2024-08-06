@@ -56,11 +56,3 @@ Route::post("/tasks", function (Request $request) {
         ->route("tasks.show", ["id" => $task->id])
         ->with("success", "Task created successfully!");
 })->name("tasks.store");
-
-
-//Route to edit task details according to id
-Route::get("/tasks/{id}/edit", function ($id) {
-    return view("edit", [
-        "task" => Task::findOrFail($id),
-    ]);
-})->name("tasks.edit");
